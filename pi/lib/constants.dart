@@ -2,7 +2,7 @@
 // lib/constants.dart
 class AppConstants {
   // API base URL for emulator
-  static const String apiBaseUrl = "http://10.0.2.2:8000/api/";
+  static const String apiBaseUrl = "https://fatimetou23.pythonanywhere.com/api/";
   
   // API endpoints
   static const String scholarsEndpoint = "${apiBaseUrl}scholars/";

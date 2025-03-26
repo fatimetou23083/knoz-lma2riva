@@ -3,8 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'video_player_page.dart';
+import 'constants.dart';
 
-const String apiUrl = "http://10.0.2.2:8000/api/";
+
 
 class Video {
   final String title;
@@ -117,9 +118,8 @@ class _ScholarsPageState extends State<ScholarsPage> with SingleTickerProviderSt
 
   Future<void> fetchScholars() async {
     try {
-      print("جاري تحميل العلماء من: ${apiUrl}scholars/");
-      
-      final response = await http.get(Uri.parse('${apiUrl}scholars/'));
+        print("جاري تحميل العلماء من: ${AppConstants.apiBaseUrl}scholars/");
+        final response = await http.get(Uri.parse('${AppConstants.apiBaseUrl}scholars/'));
       
       print("حالة استجابة API: ${response.statusCode}");
       
@@ -606,7 +606,7 @@ class _VideoListItemState extends State<VideoListItem> {
     
     try {
       final response = await http.post(
-        Uri.parse('${apiUrl}update_favorite/'),
+        Uri.parse('${AppConstants.apiBaseUrl}update_favorite/'),
         body: json.encode({
           'id': widget.video.videoId,
           'est_favori': !isFavorite
